@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Enter Animation Preview</title>
+  <link rel="stylesheet" href="css/animation.enter.main.css"/>
+</head>
+<body>
+
+<nav>
+  <section id="widgets" class="hidden">
+    <img src="img/slices/profile1.slice.widgetBar.png" alt="" width="46" height="946"/>
+  </section>
+  <section id="switcherPlayer" class="hidden">
+    <img src="img/slices/profile1.slice.switcher-player.png" alt=""/>
+  </section>
+  <section id="navigation" class="hidden">
+    <img src="img/slices/profile1.slice.navBar.png" alt=""/>
+  </section>
+</nav>
+
+<section id="profile" class="hidden">
+  <header>
+    <img class="cover" src="img/slices/profile1.slice.profileCover.png" alt=""/>
+    <img class="profile" src="img/slices/profile1.slice.profilePhoto.png" alt=""/>
+    <img class="info" src="img/slices/profile1.slice.profileInfo.png" alt=""/>
+    <img class="badges" src="img/slices/profile1.slice.profileBadges.png" alt=""/>
+    <img class="award" src="img/slices/profile1.slice.profileRewards.png" alt=""/>
+    <!-- clear -->
+    <img class="bar" src="img/slices/profile1.slice.profileHeaderBar.png" alt=""/>
+  </header>
+  <article class="explodes">
+    <img class="photos" src="img/slices/profile1.slice.profileExplodePhoto.png" alt=""/>
+    <img class="check-ins" src="img/slices/profile1.slice.profileExplodeCheckIns.png" alt=""/>
+    <img class="rewards" src="img/slices/profile1.slice.profileExplodeRewards.png" alt=""/>
+  </article>
+</section>
+
+<script>
+  Object.defineProperty(NodeList.prototype, 'toArray', {
+    enumerable: false,
+    writable: false,
+    value: function(){
+      var a = [];
+      for(var i = this.length >>> 0; i--;){
+        a[i] = this[i];
+      }
+      return a;
+    }
+  });
+
+  var timeoutID = window.setTimeout(function(){
+    document.querySelectorAll('body .hidden')
+        .toArray().forEach(function(elm, i, a){
+          elm.classList.remove('hidden');
+    });
+    window.clearTimeout(timeoutID);
+  }, 500);
+</script>
+</body>
+</html>

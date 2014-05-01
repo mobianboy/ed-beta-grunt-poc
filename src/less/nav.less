@@ -1,0 +1,311 @@
+// Nav Bars
+body {
+  &> nav{
+    z-index: 100;
+  }
+  &.top{
+
+  }
+  &.bottom{
+
+  }
+  &.left{
+
+  }
+  &.right{
+
+  }
+}
+
+// Main Navigation (Home, Music, News, Members, etc.)
+#mainNav{
+  display: block;
+  position: fixed;
+  left: 0;
+  background-color: @backgroundDark;
+  width: 100%;
+  height: 60px;
+  overflow: hidden;
+  &.top{
+    top: 0;
+  }
+  &.bottom{
+    bottom: 0;
+  }
+  button.home{
+    background-color: @red;
+    float: left;
+    width: 60px;
+    height: 60px;
+  }
+  nav.galleries{
+  // switch to flex?
+    background-color: @darkRed;
+    float: left;
+    clear: none;
+    width: ~"calc(50% - 60px)";
+    text-align: justify;
+    overflow-x: scroll;
+    & > a{
+      background-color: @darkRed;
+      height: 60px;
+      line-height: 60px;
+      text-align: center;
+      padding: 0 10px;
+    }
+  }
+  section.miniPlayer{
+    float: left;
+    width: 50%;
+    padding: 0 5px;
+    img{
+      float: left;
+      clear: none;
+      width: 40px;
+      height: 40px;
+      margin: 10px 5px 0 5px;
+    }
+    div.trackInfo{
+      display: inline-block;
+      float: left;
+      clear: none;
+      margin: 10px 5px 0 5px;
+      span{
+        float: left;
+        //clear: none;
+        clear: left;
+        //& + span{
+        //  clear: left;
+        //}
+      } 
+    }
+    button{
+      background-color: @darkRed;
+      float: left;
+      height: 50px;
+      min-width: 50px;
+      margin: 5px 0 5px 10px;
+    }
+  }
+}
+
+// Widget Sidebar
+#widgetBar{
+  display: block;
+  position: fixed;
+  top: 60px;
+  background-color: @backgroundDark;
+  width: 60px;
+  height: 100%;
+  padding-top: 30px;
+  &.left{
+    left: 0;
+    button.arrow{
+      left: 0;
+    }
+  }
+  &.right{
+    right: 0;
+    button.arrow{
+      right: 0;
+    }
+  }
+  button{
+    float: left;
+    clear: left;
+    width: 60px;
+    height: 60px;
+    background-color: @backgroundDark;
+    color: white;
+    &:hover{
+      background-color: @red;
+    }
+    &.active:not(.arrow){
+      background-color: @darkRed;
+    }
+    &.arrow{
+      height: 30px;
+      position: fixed;
+      //left: 0;
+      &:hover, &.active{ background-color: @teal; }
+      &.up{ top: 60px; }
+      &.down{
+        transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        bottom: 0;
+      }
+    }
+  }
+}
+// end new nav structure
+
+section#nav {
+  position:       fixed;
+  height:         100%;
+  width:          100%;
+  border:         0;
+  margin:         0;
+  padding:        0;
+  z-index:        5;
+  pointer-events: none;
+  &.top {
+    top: 0;
+  }
+  &.left {
+    left: 0;
+  }
+  &.right {
+    right: 0;
+  }
+  nav {
+    margin:         0;
+    padding:        0;
+    border:         0;
+    pointer-events: auto;
+    &.main {
+      // Home, Profile, MiniPlayer
+      //overflow: auto;
+      & > button, .miniPlayer > button {
+        display: block;
+        width:   60px;
+        height:  60px;
+        float:   left;
+        clear:   none;
+        cursor:  pointer;
+        border:  1px solid black;
+        &.home {
+          background-color: @red;
+        }
+        &.profile {
+          width:            150px;
+          color:            white;
+          background-color: @backgroundDark;
+          img {
+            float:         left;
+            display:       inline-block;
+            margin-left:   5px;
+            border-radius: 50%;
+          }
+        }
+      }
+      .miniPlayer {
+        display:          block;
+        width:            600px;
+        height:           60px;
+        float:            left;
+        clear:            none;
+        border:           1px solid white;
+        color:            white;
+        background-color: @backgroundDark;
+        cursor:           default;
+        overflow:         auto;
+        button {
+          width:              40px;
+          height:             40px;
+          margin:             2px 2px 0;
+          color:              white;
+          background-color:   @darkRed;
+          transition:         all 0.5s ease 0;
+          -webkit-transition: all 0.5s ease 0;
+          &:hover, &.active {
+            background-color: @teal;
+          }
+        }
+        div.scrubWrap {
+          float:    left;
+          clear:    none;
+          width:    250px;
+          margin:   0 5px;
+          overflow: auto;
+          label {
+            float: left;
+          }
+          input[type=range] {
+            width: 100%;
+            float: left;
+            clear: both;
+          }
+          time {
+            float: right;
+          }
+        }
+      }
+      .galleryNav {
+        position:         relative;
+        float:            left;
+        background-color: @darkRed;
+        text-align:       center;
+        width:            ~"calc(100% - 60px - 150px - 600px)";
+        height:           60px;
+        & > button {
+          color:              white;
+          width:              16%;
+          height:             100%;
+          background-color:   @darkRed;
+          transition:         all 0.5s ease 0;
+          -webkit-transition: all 0.5s ease 0;
+          &:hover, &.active {
+            background-color: @teal;
+          }
+        }
+        & > span.underline {
+          position:         absolute;
+          left:             60px;
+          bottom:           12px;
+          width:            6%;
+          height:           5px;
+          background-color: @teal;
+        }
+      }
+    }
+    // end .main
+    &.widgets {
+      // Widget Bar
+      position: relative;
+      float:    left;
+      clear:    both;
+      overflow: hidden;
+      height:   60%;
+      width:    60px;
+      padding:  30px 0;
+      button {
+        display:            block;
+        width:              60px;
+        height:             60px;
+        float:              left;
+        clear:              both;
+        cursor:             pointer;
+        border:             1px solid white;
+        color:              white;
+        background-color:   @backgroundDark;
+        transition:         all 0.5s ease 0;
+        -webkit-transition: all 0.5s ease 0;
+        &:hover {
+          border-color:     @teal;
+          background-color: @darkRed;
+          color:            white;
+        }
+        &.active {
+          background-color: @darkRed;
+        }
+        &.arrow {
+          position: absolute;
+          left:     0;
+          height:   30px;
+          border:   0;
+          &:hover {
+            background-color: @teal;
+          }
+        }
+        &.arrow.up {
+          top: 0;
+        }
+        &.arrow.down {
+          bottom:            0;
+          transform:         rotate(180deg);
+          -webkit-transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}

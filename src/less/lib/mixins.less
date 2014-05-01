@@ -1,0 +1,41 @@
+
+// Mixins!
+
+// Add hidden class functions
+.addHiddenClass(display){
+  &.hidden, &.hide{
+    display: none;
+  }
+}
+.addHiddenClass(visibility){
+  &.hidden, &.hide{
+    visibility: hidden;
+  }
+}
+.addHiddenClass(display, visibility){
+  &.hidden, &.hide{
+    display: none;
+    visibility: hidden;
+  }
+}
+.addHiddenClass(width){
+  &.hidden, &.hide{
+    width: 0;
+  }
+}
+.addHiddenClass(flex){
+  &.hidden, &.hide{
+    width: 0;
+    flex-basis: 0;
+  }
+}
+// End hidden class functions
+
+// Animation Helpers
+.animation(@args){
+  animation: @args;
+  -webkit-animation: @args;
+  -moz-animation: @args;
+  -o-animation: @args;
+  -ms-animation: @args;
+}
